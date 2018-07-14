@@ -18,6 +18,9 @@ Pod::Spec.new do |s|
 
   s.default_subspecs = 'Controllers'
 
+  s.public_header_files = 'LTxCore/LTxCore.h'
+  s.source_files = 'LTxCore/LTxCore.h'
+
   # Model
   s.subspec 'Model' do |sp|
     sp.source_files  =  "LTxCore/Model/*.{h,m}"

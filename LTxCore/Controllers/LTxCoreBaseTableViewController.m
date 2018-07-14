@@ -36,7 +36,7 @@
 
 #pragma mark - Left Back Button
 -(void)setupLeftBackButton{
-    UIButton *backBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 26, 26)];
+    UIButton *backBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, LTxNavigationBarItemSize, LTxNavigationBarItemSize)];
     [backBtn addTarget:self action:@selector(backAction) forControlEvents:UIControlEventTouchUpInside];
     [backBtn setImage:LTxImageWithName(@"ic_navi_back") forState:UIControlStateNormal];
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:backBtn];
@@ -207,21 +207,6 @@
     
     return animation;
 }
-
-//- (NSAttributedString *)buttonTitleForEmptyDataSet:(UIScrollView *)scrollView forState:(UIControlState)state{
-//    NSString *text;
-//    NSMutableDictionary *attributes = [NSMutableDictionary new];
-//    [attributes setObject:[UIFont systemFontOfSize:13.0] forKey:NSFontAttributeName];
-//
-//    if (_errorTips == nil) {
-//        text = @"";
-//        [attributes setObject:[LTxSipprConfig sharedInstance].skinColor forKey:NSForegroundColorAttributeName];
-//    }else{
-//        text = @"点我重新加载";
-//        [attributes setObject:[LTxSipprConfig sharedInstance].skinColor forKey:NSForegroundColorAttributeName];
-//    }
-//    return [[NSAttributedString alloc] initWithString:text attributes:attributes];
-//}
 
 #pragma mark - DZNEmptyDataSetDelegate Methods
 

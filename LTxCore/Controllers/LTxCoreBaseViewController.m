@@ -33,7 +33,7 @@
 
 #pragma mark - Left Back Button
 -(void)setupLeftBackButton{
-    UIButton *backBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 26, 26)];
+    UIButton *backBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, LTxNavigationBarItemSize, LTxNavigationBarItemSize)];
     [backBtn addTarget:self action:@selector(backAction) forControlEvents:UIControlEventTouchUpInside];
     [backBtn setImage:LTxImageWithName(@"ic_navi_back") forState:UIControlStateNormal];
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:backBtn];
