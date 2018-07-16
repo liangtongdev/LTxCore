@@ -26,6 +26,17 @@
 
 #pragma mark - SetUp
 -(void)setupViewConfig{
+    //    /*导航栏透明，配合页面view的渲染起点使用*/
+    //    self.navigationController.navigationBar.translucent = YES;
+    //   /*
+    //    UIRectEdgeNone;       //从navigationBar下面开始计算一直到屏幕tabBar上部
+    //    UIRectEdgeAll;        //从屏幕边缘计算（默认）
+    //    UIRectEdgeTop;        //navigationBar下面开始计算一直到屏幕tabBar上部
+    //    UIRectEdgeBottom;     //从navigationBar下面开始计算一直到屏幕底部
+    //    */
+    //    self.edgesForExtendedLayout = UIRectEdgeNone;
+    
+    
     [self setupLeftBackButton];
     self.view.backgroundColor = [LTxCoreConfig sharedInstance].viewBackgroundColor;
     [self setupActivityView];

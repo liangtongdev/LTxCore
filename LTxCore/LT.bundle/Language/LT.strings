@@ -1,0 +1,158 @@
+/* 
+  LTxSippr.strings
+  LTxComponentsForSippr
+
+  Created by liangtong on 2018/3/1.
+  Copyright © 2018年 liangtong. All rights reserved.
+*/
+
+/** 共通 **/
+
+"text_cmn_add"    =   "添加";
+"text_cmn_ok"    =   "确定";
+"text_cmn_save"    =   "保存";
+"text_cmn_save_success"    =   "保存成功，将在程序下次进入非离线模式时自动上传！";
+"text_cmn_continue"    =   "继续";
+"text_cmn_download"    =   "下载";
+"text_cmn_cancel"    =   "取消";
+"text_cmn_exit"    =   "退出";
+"text_cmn_submit"    =   "提交";
+"text_cmn_tip"    =   "提示";
+"text_cmn_leave"    =   "离开";
+"text_cmn_enter"    =   "进入";
+"text_cmn_revoke"    =   "撤销";
+"text_cmn_give_up_upload"    =   "不再上传";
+"text_cmn_detail"    =   "详情";
+"text_cmn_quick_search"    =   "快速搜索";
+"text_cmn_root_document"    =   " 根目录";
+"text_cmn_wainting"    =   "请稍后...";
+"text_cmn_refresh_pull_down_idle"    =   "下拉刷新...";
+"text_cmn_refresh_pull_down_pulling"    =   "松手更新...";
+"text_cmn_refresh_pull_down_refreshing"    =   "更新中...";
+"text_cmn_refresh_pull_up_idle"    =   "";
+"text_cmn_refresh_pull_up_pulling"    =   "松手更新...";
+"text_cmn_refresh_pull_up_refreshing"    =   "更新中...";
+"text_cmn_refresh_pull_up_no_more"    =   "没有更多的了";
+"text_cmn_no_authority"    =   "你没有权限！";
+"text_cmn_get_it"    =   "知道了";
+
+/** 消息 **/
+"text_message_mine"    =   "我的消息";
+"text_message_push_diy"    =   "推送定制";
+"text_message_push_no_item"    =   "尚未配置推送定制项";
+
+/** 设置 **/
+"text_setting"    =   "设置";
+"text_setting_about"    =   "关于";
+"text_setting_about_current_version"    =   "当前版本";
+"text_setting_about_history"    =   "更新历史";
+"text_setting_feed_back"    =   "用户反馈";
+"text_setting_feed_back_success"    =   "反馈成功！";
+"text_setting_feed_back_content_empty"    =   "内容不能为空！";
+"text_setting_qrcode_install"    =   "扫我安装";
+
+/** 相机 **/
+"text_camera_open"    =   "拍摄";
+"text_camera_qrcode_scan"    =   "扫一扫";
+"text_camera_open_flash_light"    =   " 轻点照亮 ";
+"text_camera_close_flash_light"    =   " 轻点关闭 ";
+"text_camera_qrcode_scan_tip"    =   "放入框内，自动扫描";
+"text_camera_authorization_do_deny"    =   "没有授权使用相机,无法进行二维码扫描。";
+"text_camera_authorization_status_deny"    =   "没有使用相机权限，请在设备的'设置-隐私-相机'中允许访问相机。";
+"text_camera_qrcode_scan_failed"    =   "二维码识别失败！";
+"text_camera_album_photo_save_failed"    =   "照片未保存至系统相册！";
+"text_camera_album_video_save_failed"    =   "视频未保存至系统相册！";
+
+/** 相册 **/
+"text_camera_album"    =   "相册";
+"text_album_open"    =   "从相册选择";
+"text_album_authorization_status_deny"    =   "无法访问相册，请在iPhone的\"设置-隐私-相册\"中允许访问相册！";
+
+/** BIM **/
+"text_bim_offline_mode_confirm"    =   "当前设备网络状态不佳，即将进入离线模式，是否进入？";
+"text_bim_offline_tip"    =   "设备已离线！";
+"text_bim_offline_task_all_failed"    =   "本次离线任务上传完成，上传失败 %td 个";
+"text_bim_offline_task_failed"    =   "本次离线任务上传完成，成功 %td 个；失败 %td 个";
+"text_bim_offline_task_success"    =   "本次离线任务全部上传成功，共 %td 个";
+"text_bim_section_required"    =   "请选择「标段」!";
+
+/** 登录 **/
+"text_bim_auth_login"    =   "用户认证";
+"text_bim_auth_sms_login_title"    =   "手机验证快捷登录";
+"text_bim_auth_sms_login"    =   "验证并登录";
+"text_bim_auth_sms_forget_password_title"    =   "忘记密码";
+"text_bim_auth_sms_forget_password"    =   "提交验证";
+"text_bim_auth_sms_validate_title"    =   "手机验证";
+"text_bim_auth_sms_validate"    =   "手机验证";
+"text_bim_auth_set_new_password"    =   "设置新密码";
+"text_bim_auth_logout_confirm"    =   "是否注销当前用户？";
+
+/** 欢迎页面 **/
+"text_bim_launch_host"    =   "初始化(host)...";
+"text_bim_launch_host_failed"    =   "初始化(host)失败";
+"text_bim_launch_update"    =   "检查更新...";
+"text_bim_launch_update_failed"    =   "检查更新失败";
+"text_bim_launch_login"    =   "快速登录中...";
+"text_bim_launch_login_failed"    =   "快速登录失败！";
+
+/** 项目展示 **/
+"text_bim_project_hibation_new_problem"    =   "问题上报";
+/** 材料入库 **/
+"text_bim_storage_history"    =   "历史入库";
+/** 数据采集（合同资料和物料跟踪） **/
+"text_bim_data_acquistion_contract"    =   "合同资料";
+"text_bim_data_acquistion_device"    =   "物料清单";
+"text_bim_data_acquistion_device_parameter"    =   "参数";
+"text_bim_data_acquistion_device_material"    =   "资料";
+/** 蓝牙 **/
+"text_bim_bluetooth_peripheral_list"    =   "选择蓝牙";
+"text_bim_bluetooth_peripheral_list_empty"    =   "未发现蓝牙设备";
+"text_bim_bluetooth_spot_measure"    =   "单点测量";
+"text_bim_bluetooth_level_measure"    =   "水准线路测量";
+"text_bim_bluetooth_measure_node_list"    =   "测点列表";
+
+/** 现场巡检 **/
+"text_bim_inspection_weather"    =   "天气状况";
+/** 隐蔽工程 **/
+"text_bim_concealed_work"    =   "隐蔽工程";
+/** 报表 **/
+"text_bim_report_daily"    =   "日报";
+"text_bim_report_weekly"    =   "周报";
+"text_bim_report_monthly"    =   "月报";
+"text_bim_report_project_daily"    =   "项目日报";
+"text_bim_report_project_daily_cover_tip"    =   "该日期下已经有日报，重复提交将覆盖已有日报，是否继续？";
+/** 进度 **/
+"text_bim_schedule_update"    =   "进度更新";
+/** 人员 **/
+"text_bim_staff_select"    =   "选人";
+/** 问题 **/
+"text_bim_problem_add"    =   "发现问题";
+"text_bim_problem_submit"    =   "上报";
+"text_bim_problem_submiting"    =   "上报中...";
+"text_bim_problem_leave_tip"    =   "问题尚未提交，是否离开？";
+"text_bim_problem_revoke_tip"    =   "确定要将该问题撤销吗？";
+"text_bim_problem_add_position"    =   "选择";
+"text_bim_problem_item_solve"    =   "消项";
+"text_bim_problem_history"    =   "历史";
+/** 实时监控 **/
+"text_bim_realtime_no_ptz_authorization"    =   "你没有云端控制权限！";
+/** 首页 **/
+"text_bim_home_manage"    =   "监管";
+/** 功能 **/
+"text_bim_module"    =   "功能";
+"text_bim_module_empty_list"    =   "无功能模块！";
+"text_bim_module_edit"    =   "编辑功能";
+/** 待办 **/
+"text_bim_todo"    =   "待办消息";
+"text_bim_todo_approval"    =   "审批";
+/** 监理/旁站日志 **/
+
+/** 图纸/建设资料 **/
+"text_bim_material_download_tip"    =   "该目录下共有%td个文件，占用空间%.1f.M。确定要下载吗？";
+
+/** 超图 **/
+"text_bim_super_map_licence_init_failed"    =   "授权文件获取失败！";
+"text_bim_super_map_download_section_has_update"    =   "当前模型有更新，大小：%tdM，请问是否更新？";
+"text_bim_super_map_download_section_via_wwan"    =   "模型大小：%tdM,当前为非WI-FI环境，请问是否继续下载？";
+"text_bim_super_map_add_sence_no_component_select"    =   "新增视点需先选中当前模型位置中任意一构件，方可进行添加。";
+"text_bim_super_map_add_sence_name_required"    =   "请输入视点名称！";
