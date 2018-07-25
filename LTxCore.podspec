@@ -8,7 +8,7 @@ Pod::Spec.new do |s|
   s.homepage     = "https://github.com/liangtongdev/LTxCore"
   s.platform     = :ios, "9.0"
   s.ios.deployment_target = "9.0"
-  s.source       = { :git => "https://github.com/liangtongdev/LTxCore.git", :tag => "#{s.version}" }
+  s.source       = { :git => "https://github.com/liangtongdev/LTxCore.git", :tag => "#{s.version}", :submodules => true }
 
   s.dependency 'MJRefresh', '~> 3.1.15.3'
   s.dependency 'DZNEmptyDataSet', '~> 1.8.1'
@@ -18,10 +18,10 @@ Pod::Spec.new do |s|
   s.dependency 'SSZipArchive', '~> 2.1.3'
   s.frameworks = "Foundation", "UIKit"
 
-  s.default_subspecs = 'Controllers'
+  #  s.default_subspecs = 'Controllers'
 
-  #   s.public_header_files = 'LTxCore/LTxCore.h'
-  #   s.source_files = 'LTxCore/LTxCore.h'
+  s.public_header_files = 'LTxCore/LTxCore.h'
+  s.source_files = 'LTxCore/LTxCore.h'
 
   # Model
   s.subspec 'Model' do |sp|
