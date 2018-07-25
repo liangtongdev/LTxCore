@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "LTxCore"
-  s.version      = "0.0.3"
+  s.version      = "0.5.0"
   s.summary      = "组件化管理核心模块. "
   s.license      = "MIT"
   s.author             = { "liangtong" => "liangtongdev@163.com" }
@@ -20,8 +20,7 @@ Pod::Spec.new do |s|
 
   #  s.default_subspecs = 'Controllers'
 
-  s.public_header_files = 'LTxCore/LTxCore.h'
-  s.source_files = 'LTxCore/LTxCore.h'
+
 
   # Model
   s.subspec 'Model' do |sp|
@@ -48,6 +47,13 @@ Pod::Spec.new do |s|
     sp.source_files  =  "LTxCore/Controllers/*.{h,m}"
     sp.public_header_files = "LTxCore/Controllers/**/*.h"
     sp.dependency 'LTxCore/Views'
+  end
+
+  # Core
+  s.subspec 'Core' do |sp|
+    sp.public_header_files = 'LTxCore/LTxCore.h'
+    sp.source_files = 'LTxCore/LTxCore.h'
+    sp.dependency 'LTxCore/Controllers'
   end
 
 end
