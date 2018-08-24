@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "LTxCoreMacroDef.h"
-
+#import "LTxCoreErrorCode.h"
 /**
  * http网络访问服务接口
  **/

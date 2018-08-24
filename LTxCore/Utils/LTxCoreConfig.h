@@ -60,4 +60,8 @@
 @property (nonatomic, strong) NSString* aboutTip;
 @property (nonatomic, assign) BOOL cameraAlbumCustom;// 保存相片/视频时，是否使用自定义相册
 
+#pragma mark - 网络
+//某个时间点上最大的下载个数(大于0)，默认为2
+@property (nonatomic, readonly) NSInteger maxDownloadingCount;
+
 @end

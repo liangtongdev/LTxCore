@@ -8,10 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import <DZNEmptyDataSet/UIScrollView+EmptyDataSet.h>
+#import <LTxCategories/LTxCategories.h>
 #import "LTxCoreMJRefresh.h"
 #import "LTxCoreConfig.h"
-#import "LTxCoreCategories.h"
-#import "LTxCorePopup.h"
 @interface LTxCoreBaseTableViewController : UITableViewController
 #pragma mark - 画面提示
 @property(nonatomic,strong) NSString* errorTips;

@@ -7,6 +7,7 @@
 //
 
 #import "LTxCoreDownloadTaskService.h"
+#import "LTxCoreConfig.h"
 #import "LTxCoreDatabase.h"
 #import "LTxCoreFileManager.h"
 #import <SSZipArchive/SSZipArchive.h>
@@ -15,6 +16,9 @@
 @property (nonatomic, strong) NSOperationQueue *operationQueue;
 @property (nonatomic, strong) NSMutableArray* taskArray;//下载数组
 @property (nonatomic, strong) NSURLSession* session;//下载用
+
+@property (nonatomic, strong) dispatch_semaphore_t semaphore;//信号量，用于限制最大上传个数
+@property (nonatomic, strong) dispatch_queue_t queue;//信号队列
 @end
 @implementation LTxCoreDownloadTaskService
 
@@ -37,7 +41,11 @@ static LTxCoreDownloadTaskService *_instance;
  **/
 -(void)setupDownloadTaskService{
     _taskArray = [[NSMutableArray alloc] init];
-    _maxDownloadingCount = 5;
+    NSInteger maxCount = [LTxCoreConfig sharedInstance].maxDownloadingCount;
+    _semaphore = dispatch_semaphore_create(maxCount);
+    _queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    
+    
     NSURLSessionConfiguration* configuration = [NSURLSessionConfiguration backgroundSessionConfigurationWithIdentifier:@"ltx_core_download_task_service_identifier"];
     _operationQueue = [[NSOperationQueue alloc] init];
     _session = [NSURLSession sessionWithConfiguration:configuration delegate:self delegateQueue:_operationQueue];
@@ -53,8 +61,7 @@ static LTxCoreDownloadTaskService *_instance;
                 NSURL* fileURL = [NSURL URLWithString:[url stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]]];
                 NSURLSessionDownloadTask* downloadTask = [self.session downloadTaskWithURL:fileURL];
                 downloadTask.taskDescription = url;
-                [downloadTask resume];
-                [self.taskArray addObject:downloadTask];
+                [self startDownloadServiceWithTask:downloadTask];
             }
             [task cancel];
         }
@@ -63,19 +70,7 @@ static LTxCoreDownloadTaskService *_instance;
 
 
 //使用taskDescription来区分不同的url
--(void)addDownloadTaskWithURL:(NSString*)url pathInSandbox:(NSString*)path saveName:(NSString*)saveName unzip:(NSNumber*)unZip queryCallback:(LTxCoreTaskAddQueryCallbackBlock)callback{
-    //先判断添加的文件是否在下载的数组中
-    BOOL exists = [self fileExistInTaskArray:url];
-    if (exists) {
-        if(callback){
-           BOOL query = callback(LTxCoreTaskAddQueryStateExists);
-            if (!query) {
-                return;
-            }
-        }else{
-            return;
-        }
-    }
+-(void)addDownloadTaskWithURL:(NSString*)url pathInSandbox:(NSString*)path saveName:(NSString*)saveName unzip:(NSNumber*)unZip{
     //开始下载
     NSURL* fileURL = [NSURL URLWithString:[url stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]]];
     if (!fileURL) {
@@ -84,10 +79,7 @@ static LTxCoreDownloadTaskService *_instance;
     NSURLSessionDownloadTask* downloadTask = [self.session downloadTaskWithURL:fileURL];
     downloadTask.taskDescription = url;
     [LTxCoreDatabase addDownloadTaskWithURL:url pathInSandbox:path name:saveName unzip:unZip];//缓存起来
-    [_taskArray addObject:downloadTask];
-    [self checkTaskService];
-    
-    
+    [self startDownloadServiceWithTask:downloadTask];
 }
 -(LTxCoreTaskState)statusWithURL:(NSString*)url{
     LTxCoreTaskState retState = LTxCoreTaskStateNone;
@@ -140,9 +132,8 @@ static LTxCoreDownloadTaskService *_instance;
             break;
         }
     }
-    if (downloadTask) {
-        [downloadTask suspend];
-    }
+    [self pauseDownloadServiceWithTask:downloadTask];
+    
 }
 -(void)resumeTaskWithURL:(NSString*)url{
     NSURLSessionDownloadTask* downloadTask;
@@ -152,42 +143,38 @@ static LTxCoreDownloadTaskService *_instance;
             break;
         }
     }
-    if (downloadTask.state == NSURLSessionTaskStateSuspended) {
-        [downloadTask resume];
-    }
-    [self checkTaskService];
-}
-/**
- * 重新开始对下载服务进行判断
- **/
--(void)checkTaskService{
-    NSInteger runningCount = 0;//运行数量
-    NSInteger suspendCount = 0;//挂起数量
-    for (NSURLSessionDownloadTask* task in _taskArray) {
-        if (task.state == NSURLSessionTaskStateRunning) {
-            ++runningCount;
-        }else if (task.state == NSURLSessionTaskStateSuspended) {
-            ++suspendCount;
-        }
-    }
-    
-    //正在下载的数量已经达到最大要求，则不处理
-    if (runningCount >= _maxDownloadingCount) {
-        return;
-    }
-    if (suspendCount == 0) {//没有待下载的任务了。
-        return;
-    }
-    
-    //启动任务
-    for (NSURLSessionDownloadTask* task in _taskArray) {
-        if (task.state == NSURLSessionTaskStateSuspended) {
-            [task resume];
-        }
-    }
-    [self checkTaskService];
+    [self startDownloadServiceWithTask:downloadTask];
 }
 
+
+/**
+ * 开始下载任务
+ **/
+-(void)startDownloadServiceWithTask:(NSURLSessionDownloadTask*)downloadTask{
+    
+    if (!downloadTask) {
+        return;
+    }
+    [self.taskArray addObject:downloadTask];
+    dispatch_async(_queue, ^{
+        dispatch_semaphore_wait(self.semaphore, DISPATCH_TIME_FOREVER);
+        [downloadTask resume];
+        NSLog(@"-----> 开始下载");
+    });
+}
+
+/**
+ * 暂停下载任务
+ **/
+-(void)pauseDownloadServiceWithTask:(NSURLSessionDownloadTask*)downloadTask{
+    if (!downloadTask) {
+        return;
+    }
+    [downloadTask suspend];
+    dispatch_async(_queue, ^{
+        dispatch_semaphore_signal(self.semaphore);
+    });
+}
 
 #pragma mark - 工具
 //文件处于下载队列中
@@ -293,15 +280,17 @@ static LTxCoreDownloadTaskService *_instance;
     NSDictionary* obj = @{@"url":downloadTask.taskDescription};
     [self postTaskUpdateNotificationWithKey:LTX_CORE_DOWNLOAD_TASK_STATE_UPDATE_KEY object:obj];
     
-    [self checkTaskService];
 }
 /*
  4.请求完成之后调用
  如果请求失败，那么error有值
  */
 -(void)URLSession:(nonnull NSURLSession *)session task:(nonnull NSURLSessionTask *)task didCompleteWithError:(nullable NSError *)error{
-    //    [self postTaskUpdateNotificationWithKey:BIM_DOWNLOAD_TASK_STATE_UPDATE_KEY object:nil];
-    
-    [self checkTaskService];
+    if (task && [_taskArray containsObject:task]) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            dispatch_semaphore_signal(self.semaphore);
+            NSLog(@"-----> 完成下载");
+        });
+    }
 }
 @end

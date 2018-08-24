@@ -7,9 +7,9 @@
 //
 
 #import "LTxCoreHttpService.h"
+#import <LTxCategories/LTxCategories.h>
 #import "AFNetworking.h"
 #import "LTxCoreConfig.h"
-#import "LTxCoreCategories.h"
 
 @interface LTxSipprHTTPSessionManager :AFHTTPSessionManager
 @end
@@ -56,7 +56,7 @@
         [stringBuffer insertString:[token substringToIndex:32] atIndex:0];
         [stringBuffer insertString:[NSString stringWithFormat:@"%.0f&",timestamp] atIndex:0];
         //对stringBuffer进行MD5加密，之后添加到Request中
-        NSString* calcSgin = [stringBuffer jk_md5String];
+        NSString* calcSgin = [stringBuffer ltx_md5String];
 //        NSLog(@"\n***********calcSign加密***********\n前：%@\n后：%@\n",stringBuffer,calcSgin);
         
         [request setValue:token forHTTPHeaderField:@"token"];
@@ -208,7 +208,7 @@ static LTxSipprHTTPSessionManager *_sharedManager;
 +(void)handleHttpResponseWithStatusCode:(NSInteger)statusCode
                          responseObject:(id)responseObject
                                complete:(LTxStringAndObjectCallbackBlock)complete{
-    NSString* errorTips = [LTxCoreHttpService errorTipsWithHttpStatusCode:statusCode responseDic:responseObject];
+    NSString* errorTips = [LTxCoreErrorCode errorTipsWithHttpStatusCode:statusCode responseDic:responseObject];
     NSDictionary* data;
     if ([responseObject isKindOfClass:[NSDictionary class]]) {
         data = [responseObject objectForKey:@"data"];
@@ -218,96 +218,4 @@ static LTxSipprHTTPSessionManager *_sharedManager;
     }
 }
 
-/**
- * @brief 错误代码分析
- *
- * @param     httpStatusCode     状态编码
- * @param     responseDic     业务数据
- *
- *  （一）HTTP网络相关
- *  2?:OK
- *  3?:OK
- *  404:访问资源已失效！->log
- *  4？:访问异常(4XX)，我们将尽快解决此问题！  ->log
- *  500:服务异常，请稍后再试！ ->log
- *  5？：服务异常(5XX)，我们将尽快解决此问题！ ->log
- *
- * （二）业务处理相关
- *
- */
-+(NSString*)errorTipsWithHttpStatusCode:(NSInteger)httpStatusCode responseDic:(NSDictionary*)responseDic{
-    
-    NSString* retString = nil;
-    if (httpStatusCode == 0) {
-        retString = @"网络请求失败！";
-    }else if (httpStatusCode > 200) {
-        if (httpStatusCode >= 200 && httpStatusCode < 400) {
-            retString = [NSString stringWithFormat:@"访问异常(%td)！",httpStatusCode];
-        }else if (httpStatusCode < 1000 ){
-            if (httpStatusCode < 500){
-                if (httpStatusCode == 404) {
-                    retString = @"访问资源已失效(404)！";
-                }else{
-                    retString = [NSString stringWithFormat:@"访问异常(%td)！",httpStatusCode];
-                }
-            }else if (httpStatusCode == 500){
-                retString = @"服务异常，请稍后再试(500)！";
-            }else if (httpStatusCode < 600){
-                retString = [NSString stringWithFormat:@"服务异常(%td)！",httpStatusCode];
-            }else{// statusCode >= 600,hook
-                retString = [NSString stringWithFormat:@"访问好像不太正常(%td)，我也不知道为什么会出现这个状态码😄！",httpStatusCode];
-            }
-        }else{
-            retString = @"数据访问出了点儿问题！";
-        }
-    }else{//网络请求正常的情况下，检查数据是否正常
-        NSInteger code = [[responseDic objectForKey:@"code"] integerValue];
-        if (code == 0) {//正常，不做处理
-            
-        }else if (code == 1){
-            retString = [responseDic objectForKey:@"message"];
-        }else if (code == 100){
-            retString = @"应用编号无效(Error:100)！";
-        }else if (code == 101){
-            retString = @"请求参数无效(Error:101)！";
-        }else if (code == 102){
-            retString = @"此服务已被弃用(Error:102)！";
-        }else if (code == 103){
-            retString = @"未找到此服务(Error:103)！";
-        }else if (code == 104){
-            retString = @"服务调用次数已达上限(Error:104)！";
-        }else if (code == 105){
-            retString = @"无权限访问服务！";
-        }else if (code == 20100){
-            retString = @"用户名不存在！";
-        }else if (code == 20101){
-            retString = @"用户名或密码错误！";
-        }else if (code == 20102){
-            retString = @"用户信息不完整！";
-        }else if (code == 20200){
-            retString = @"手机号已锁定！";
-        }else if (code == 20201){
-            retString = @"手机号未被授权！";
-        }else if (code == 20202){
-            retString = @"手机号格式错误！";
-        }else if (code == 20203){
-            retString = @"短信验证码发送失败！";
-        }else if (code == 20204){
-            retString = @"短信验证码发送次数已达今日上限！";
-        }else if (code == 20205){
-            retString = @"验证码已过期！";
-        }else if (code == 20206){
-            retString = @"验证码验证失败！";
-        }else if (code == 20207){
-            retString = @"验证码验证次数已达上限，请重新发送！";
-        }else if (code == 20208){
-            retString = @"云平台短信服务业务限流！";
-        }else if (code == 20209){
-            retString = @"云平台短信服务调用异常！";
-        }else{
-            retString = @"服务异常，请稍后再试！";
-        }
-    }
-    return retString;
-}
 @end

@@ -12,10 +12,13 @@
 /**
  * UIViewController
  **/
+//Base
 #import "LTxCoreBaseNavi.h"
 #import "LTxCoreBaseViewController.h"
 #import "LTxCoreBaseTableViewController.h"
 
+// 文件预览
+#import "LTxCoreFilePreviewViewController.h"
 /**
  * UIView
  **/
@@ -30,9 +33,13 @@
  * Utils
  **/
 #import "LTxCoreFile.h"
+#import "LTxCoreDownloadTaskService.h"
 
-
-
+/**
+ * Model
+ **/
+#import "LTxCoreDatabase.h"
+#import "LTxCoreFileManager.h"
 
 
 

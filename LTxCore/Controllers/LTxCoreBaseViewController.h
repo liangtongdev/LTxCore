@@ -8,10 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import <DZNEmptyDataSet/UIScrollView+EmptyDataSet.h>
+#import <LTxCategories/LTxCategories.h>
 #import "LTxCoreMJRefresh.h"
 #import "LTxCoreConfig.h"
-#import "LTxCoreCategories.h"
-#import "LTxCorePopup.h"
 
 @interface LTxCoreBaseViewController : UIViewController
 #pragma mark - 画面提示

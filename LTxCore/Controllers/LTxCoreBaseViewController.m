@@ -21,11 +21,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     /*配置界面元素*/
-    [self setupViewConfig];
+    [self ltx_setupViewConfig];
 }
 
 #pragma mark - SetUp
--(void)setupViewConfig{
+-(void)ltx_setupViewConfig{
     //    /*导航栏透明，配合页面view的渲染起点使用*/
     //    self.navigationController.navigationBar.translucent = YES;
     //   /*
@@ -37,26 +37,26 @@
     //    self.edgesForExtendedLayout = UIRectEdgeNone;
     
     
-    [self setupLeftBackButton];
+    [self ltx_setupLeftBackButton];
     self.view.backgroundColor = [LTxCoreConfig sharedInstance].viewBackgroundColor;
-    [self setupActivityView];
+    [self ltx_setupActivityView];
 }
 
 #pragma mark - Left Back Button
--(void)setupLeftBackButton{
+-(void)ltx_setupLeftBackButton{
     UIButton *backBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, LTxNavigationBarItemSize, LTxNavigationBarItemSize)];
-    [backBtn addTarget:self action:@selector(backAction) forControlEvents:UIControlEventTouchUpInside];
+    [backBtn addTarget:self action:@selector(ltx_backAction) forControlEvents:UIControlEventTouchUpInside];
     [backBtn setImage:LTxImageWithName(@"ic_navi_back") forState:UIControlStateNormal];
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:backBtn];
 }
--(void)backAction{
+-(void)ltx_backAction{
     if (![self.navigationController popViewControllerAnimated:true]) {
         [self dismissViewControllerAnimated:true completion:nil];
     };
 }
 
 #pragma mark - ActivityView
--(void)setupActivityView{
+-(void)ltx_setupActivityView{
     _activityView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
     _activityView.translatesAutoresizingMaskIntoConstraints = NO;
     _activityView.layer.cornerRadius = 8.f;

@@ -3,6 +3,67 @@
 组件化管理(构建)移动应用
 
 
+### 使用例子
+
+#### 程序主体颜色等配置
+
+根据需要配置，如果不需要，则忽略即可
+
+```Objective-C
+    //程序主色调。导航栏颜色等
+    [LTxCoreConfig sharedInstance].skinColor = [UIColor brownColor];
+    [[LTxCoreConfig sharedInstance] appSetup];
+
+    //文件系统，数据库初始化 - 如果用到断点下载等功能，需要配置
+    [LTxCoreFileManager fileManagerInit];
+    [LTxCoreDatabase tablesInit];
+```
+
+#### 容器
+
+```Objective-C
+@interface MainTableViewController : LTxCoreBaseTableViewController
+@end
+
+
+[self addPullDownRefresh:^{
+        //下拉刷新
+    } andPullUpRefresh:^{
+        //上拉加载更多
+    }];
+
+```
+
+
+#### 文件预览
+
+```Objective-C
+        LTxCoreFilePreviewViewController* previewVC = [[LTxCoreFilePreviewViewController alloc] init];
+        previewVC.fileURL = [NSURL URLWithString:@"https://developer.apple.com/ibeacon/Getting-Started-with-iBeacon.pdf"];
+        previewVC.shareWithOtherApp = YES;
+        previewVC.needToDownload = YES;
+        previewVC.preferCache = YES;
+        [self.navigationController pushViewController:previewVC animated:YES];
+```
+
+
+
+#### 配置文件<部分摘取>
+
+```Info.plist
+	<key>type</key>
+	<string>debug</string>
+	<key>appId</key>
+	<string>ebe2ea6b-5974-46d8-b3e2-5e9808889aad</string>
+	<key>pushId</key>
+	<string>726566836973cbcd74c5ed54</string>
+	<key>pageSize</key>
+	<integer>20</integer>
+```
+
+
+
+### 其他
 
 #### 为什么要对项目进行组件化维护？
 

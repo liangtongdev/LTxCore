@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <LTxCategories/LTxCategories.h>
 #import "LTxCoreMacroDef.h"
-#import "LTxCoreCategories.h"
 @interface LTxCoreBaseTableViewCell : UITableViewCell
 
 @end

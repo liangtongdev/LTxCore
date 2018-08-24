@@ -29,11 +29,13 @@ typedef BOOL (^LTxCoreTaskAddQueryCallbackBlock)(LTxCoreTaskAddQueryState);
 #define LTX_CORE_DOWNLOAD_TASK_STATE_UPDATE_KEY @"LTX_CORE_DOWNLOAD_TASK_STATE_UPDATE_KEY"//文件下载变更通知
 #define LTX_CORE_DOWNLOAD_TASK_PROGRESS_UPDATE_KEY @"LTX_CORE_DOWNLOAD_TASK_PROGRESS_UPDATE_KEY"//文件进度变更通知
 
+
+
+
 /**
  * 文件下载服务
  **/
 @interface LTxCoreDownloadTaskService : NSObject
-@property (nonatomic, assign) NSInteger maxDownloadingCount;
 
 //单例
 + (instancetype)sharedInstance;
@@ -42,7 +44,7 @@ typedef BOOL (^LTxCoreTaskAddQueryCallbackBlock)(LTxCoreTaskAddQueryState);
  **/
 -(void)setupDownloadTaskService;
 
--(void)addDownloadTaskWithURL:(NSString*)url pathInSandbox:(NSString*)path saveName:(NSString*)saveName unzip:(NSNumber*)unZip queryCallback:(LTxCoreTaskAddQueryCallbackBlock)callback;
+-(void)addDownloadTaskWithURL:(NSString*)url pathInSandbox:(NSString*)path saveName:(NSString*)saveName unzip:(NSNumber*)unZip;
 -(LTxCoreTaskState)statusWithURL:(NSString*)url;
 -(CGFloat)progressWithURL:(NSString*)url;
 -(void)pauseTaskWithURL:(NSString*)url;

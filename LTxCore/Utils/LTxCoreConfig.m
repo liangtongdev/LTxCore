@@ -67,6 +67,8 @@ static LTxCoreConfig *_instance;
         _aboutTip = [configDic objectForKey:@"aboutTip"];
         _cameraAlbumCustom = [[configDic objectForKey:@"cameraAlbumCustom"] boolValue];
         
+        _maxDownloadingCount = [[configDic objectForKey:@"maxDownloadingCount"] integerValue];
+        
         //HOST
         NSDictionary* typeDic = [configDic objectForKey:type];
         _instalUrl = [typeDic objectForKey:@"instalUrl"];
@@ -92,6 +94,8 @@ static LTxCoreConfig *_instance;
         \n2.针对iOS9及以上版本的用户，打开本应用时你可能会收到“未受信任的企业级开发者”的提示。此时，你需按照以下步骤手工完成设置（苹果官方最新安全要求）：进入[设置]>[通用]>[描述文件]>[企业级应用]>[Sippr Enginnering Group Co., LTD.]，点击“信任...”或进入[设置]>[通用]>[设备管理]>[Sippr Enginnering Group Co., LTD.]，点击“信任...”。";
         _aboutTip = @"本应用包含极光推送，版权所有(c) 2012, 深圳市和讯华谷信息技术有限公司。";
         _cameraAlbumCustom = YES;
+        
+        _maxDownloadingCount = 1;
     }
     
     

@@ -121,6 +121,7 @@
         if(_needToDownload){//需要下载，则先下载文件，下载完成后，再初始化页面展示控件
             [self setupProgressView];//进度条
             [self addNotification];//通知
+            [self showAnimatingActivityView];
             NSString* fileSaveName = _fileURL.absoluteString.lastPathComponent;
             NSString* oldFilePath = [LTxCoreFileManager cacheFilePathWithName:fileSaveName];
             if (_preferCache) {
@@ -137,10 +138,7 @@
             }
             
             [LTxCoreFileManager removeItemAtPath:oldFilePath];
-            [[LTxCoreDownloadTaskService sharedInstance] addDownloadTaskWithURL:_fileURL.absoluteString pathInSandbox:LTX_CORE_FILE_PREVIEW_CACHE_RELATIVE_PATH saveName:fileSaveName unzip:@0 queryCallback:^BOOL(LTxCoreTaskAddQueryState state) {
-                [LTxCorePopup showToast:@"任务已经处于下载列表中！" onView:self.view];
-                return YES;
-            }];
+            [[LTxCoreDownloadTaskService sharedInstance] addDownloadTaskWithURL:_fileURL.absoluteString pathInSandbox:LTX_CORE_FILE_PREVIEW_CACHE_RELATIVE_PATH saveName:fileSaveName unzip:@0];
             
         }else{//不需要下载，直接初始化页面展示控件
             _filePath = _fileURL;
@@ -238,7 +236,7 @@
             self.progressView.hidden = NO;
             CGFloat progress = [[obj objectForKey:@"value"] floatValue];
             dispatch_async(dispatch_get_main_queue(), ^{
-                self.progressView.progress = progress;
+                [self.progressView setProgress:progress animated:YES];
             });
         }
     }else if ([notificationKeyName isEqualToString:LTX_CORE_DOWNLOAD_TASK_STATE_UPDATE_KEY]) {//下载完成
@@ -249,6 +247,8 @@
             _filePath = [NSURL fileURLWithPath:filePath];
             [self setupPreviewViewContent];
         }
+        
+        [self hideAnimatingActivityView];
     }
     
 }
