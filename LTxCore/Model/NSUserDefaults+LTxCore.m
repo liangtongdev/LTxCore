@@ -38,7 +38,8 @@
                       /*HOST*/
                       USERDEFAULT_APP_UPDATE_HOST,
                       USERDEFAULT_APP_MSG_HOST,
-                      USERDEFAULT_APP_SERVICE_HOST
+                      USERDEFAULT_APP_SERVICE_HOST,
+                      USERDEFAULT_APP_SHARE_HOST
                       ];
     for (NSString* key in keys) {
         [accountDefaults removeObjectForKey:key];

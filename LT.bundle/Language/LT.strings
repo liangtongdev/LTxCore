@@ -68,91 +68,25 @@
 "text_album_open"    =   "从相册选择";
 "text_album_authorization_status_deny"    =   "无法访问相册，请在iPhone的\"设置-隐私-相册\"中允许访问相册！";
 
-/** BIM **/
-"text_bim_offline_mode_confirm"    =   "当前设备网络状态不佳，即将进入离线模式，是否进入？";
-"text_bim_offline_tip"    =   "设备已离线！";
-"text_bim_offline_task_all_failed"    =   "本次离线任务上传完成，上传失败 %td 个";
-"text_bim_offline_task_failed"    =   "本次离线任务上传完成，成功 %td 个；失败 %td 个";
-"text_bim_offline_task_success"    =   "本次离线任务全部上传成功，共 %td 个";
-"text_bim_section_required"    =   "请选择「标段」!";
 
 /** 登录 **/
-"text_bim_auth_login"    =   "用户认证";
-"text_bim_auth_sms_login_title"    =   "手机验证快捷登录";
-"text_bim_auth_sms_login"    =   "验证并登录";
-"text_bim_auth_sms_forget_password_title"    =   "忘记密码";
-"text_bim_auth_sms_forget_password"    =   "提交验证";
-"text_bim_auth_sms_validate_title"    =   "手机验证";
-"text_bim_auth_sms_validate"    =   "手机验证";
-"text_bim_auth_set_new_password"    =   "设置新密码";
-"text_bim_auth_logout_confirm"    =   "是否注销当前用户？";
+"text_auth_login"    =   "用户认证";
+"text_auth_login_username_placeholder"    =   "用户名/手机号";
+"text_auth_login_password_placeholder"    =   "密码";
+"text_auth_login_action"    =   "登录";
+"text_auth_login_forget_action"    =   "忘记密码？";
+"text_auth_sms_login_title"    =   "手机验证快捷登录";
+"text_auth_sms_login"    =   "验证并登录";
+"text_auth_sms_forget_password_title"    =   "忘记密码";
+"text_auth_sms_forget_password"    =   "提交验证";
+"text_auth_sms_validate_title"    =   "手机验证";
+"text_auth_sms_validate"    =   "手机验证";
+"text_auth_sms_phone_placeholder"    =   "手机";
+"text_auth_sms_code_placeholder"    =   "验证码";
+"text_auth_set_new_password"    =   "设置新密码";
+"text_auth_set_new_password_placeholder_1"    =   "新密码";
+"text_auth_set_new_password_placeholder_2"    =   "再次输入新密码";
+"text_auth_set_new_password_action"    =   "提交新密码";
+"text_auth_logout_confirm"    =   "是否注销当前用户？";
 
-/** 欢迎页面 **/
-"text_bim_launch_host"    =   "初始化(host)...";
-"text_bim_launch_host_failed"    =   "初始化(host)失败";
-"text_bim_launch_update"    =   "检查更新...";
-"text_bim_launch_update_failed"    =   "检查更新失败";
-"text_bim_launch_login"    =   "快速登录中...";
-"text_bim_launch_login_failed"    =   "快速登录失败！";
 
-/** 项目展示 **/
-"text_bim_project_hibation_new_problem"    =   "问题上报";
-/** 材料入库 **/
-"text_bim_storage_history"    =   "历史入库";
-/** 数据采集（合同资料和物料跟踪） **/
-"text_bim_data_acquistion_contract"    =   "合同资料";
-"text_bim_data_acquistion_device"    =   "物料清单";
-"text_bim_data_acquistion_device_parameter"    =   "参数";
-"text_bim_data_acquistion_device_material"    =   "资料";
-/** 蓝牙 **/
-"text_bim_bluetooth_peripheral_list"    =   "选择蓝牙";
-"text_bim_bluetooth_peripheral_list_empty"    =   "未发现蓝牙设备";
-"text_bim_bluetooth_spot_measure"    =   "单点测量";
-"text_bim_bluetooth_level_measure"    =   "水准线路测量";
-"text_bim_bluetooth_measure_node_list"    =   "测点列表";
-
-/** 现场巡检 **/
-"text_bim_inspection_weather"    =   "天气状况";
-/** 隐蔽工程 **/
-"text_bim_concealed_work"    =   "隐蔽工程";
-/** 报表 **/
-"text_bim_report_daily"    =   "日报";
-"text_bim_report_weekly"    =   "周报";
-"text_bim_report_monthly"    =   "月报";
-"text_bim_report_project_daily"    =   "项目日报";
-"text_bim_report_project_daily_cover_tip"    =   "该日期下已经有日报，重复提交将覆盖已有日报，是否继续？";
-/** 进度 **/
-"text_bim_schedule_update"    =   "进度更新";
-/** 人员 **/
-"text_bim_staff_select"    =   "选人";
-/** 问题 **/
-"text_bim_problem_add"    =   "发现问题";
-"text_bim_problem_submit"    =   "上报";
-"text_bim_problem_submiting"    =   "上报中...";
-"text_bim_problem_leave_tip"    =   "问题尚未提交，是否离开？";
-"text_bim_problem_revoke_tip"    =   "确定要将该问题撤销吗？";
-"text_bim_problem_add_position"    =   "选择";
-"text_bim_problem_item_solve"    =   "消项";
-"text_bim_problem_history"    =   "历史";
-/** 实时监控 **/
-"text_bim_realtime_no_ptz_authorization"    =   "你没有云端控制权限！";
-/** 首页 **/
-"text_bim_home_manage"    =   "监管";
-/** 功能 **/
-"text_bim_module"    =   "功能";
-"text_bim_module_empty_list"    =   "无功能模块！";
-"text_bim_module_edit"    =   "编辑功能";
-/** 待办 **/
-"text_bim_todo"    =   "待办消息";
-"text_bim_todo_approval"    =   "审批";
-/** 监理/旁站日志 **/
-
-/** 图纸/建设资料 **/
-"text_bim_material_download_tip"    =   "该目录下共有%td个文件，占用空间%.1f.M。确定要下载吗？";
-
-/** 超图 **/
-"text_bim_super_map_licence_init_failed"    =   "授权文件获取失败！";
-"text_bim_super_map_download_section_has_update"    =   "当前模型有更新，大小：%tdM，请问是否更新？";
-"text_bim_super_map_download_section_via_wwan"    =   "模型大小：%tdM,当前为非WI-FI环境，请问是否继续下载？";
-"text_bim_super_map_add_sence_no_component_select"    =   "新增视点需先选中当前模型位置中任意一构件，方可进行添加。";
-"text_bim_super_map_add_sence_name_required"    =   "请输入视点名称！";

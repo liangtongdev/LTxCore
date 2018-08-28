@@ -78,6 +78,7 @@ static LTxCoreConfig *_instance;
         _messageHost = [NSUserDefaults lt_objectForKey:USERDEFAULT_APP_MSG_HOST];
         _eepmHost = [NSUserDefaults lt_objectForKey:USERDEFAULT_APP_UPDATE_HOST];
         _serviceHost = [NSUserDefaults lt_objectForKey:USERDEFAULT_APP_SERVICE_HOST];
+        _serviceHost = [NSUserDefaults lt_objectForKey:USERDEFAULT_APP_SHARE_HOST];
     }else{//默认配置
         /*HOST*/
         _messageHost = @"http://125.46.29.147:8852/eepj_push";

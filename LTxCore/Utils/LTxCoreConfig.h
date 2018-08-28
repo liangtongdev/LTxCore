@@ -47,6 +47,7 @@
 @property (nonatomic, strong) NSString* messageHost;
 @property (nonatomic, strong) NSString* eepmHost;
 @property (nonatomic, strong) NSString* serviceHost;
+@property (nonatomic, strong) NSString* shareHost;
 
 #pragma mark - 系统配置
 @property (nonatomic, strong) NSString* appId;
