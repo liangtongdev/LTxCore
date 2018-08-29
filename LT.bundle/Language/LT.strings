@@ -89,4 +89,12 @@
 "text_auth_set_new_password_action"    =   "提交新密码";
 "text_auth_logout_confirm"    =   "是否注销当前用户？";
 
+"text_auth_launch_host"    =   "初始化(host)...";
+"text_auth_launch_host_failed"    =   "初始化(host)失败";
+"text_auth_launch_update"    =   "检查更新...";
+"text_auth_launch_update_failed"    =   "检查更新失败";
+"text_auth_launch_login"    =   "快速登录中...";
+"text_auth_launch_login_failed"    =   "快速登录失败！";
+
+
 
