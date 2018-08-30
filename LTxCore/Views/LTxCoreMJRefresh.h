@@ -11,6 +11,8 @@
 #import <MJRefresh/MJRefreshGifHeader.h>
 #import <MJRefresh/MJRefreshAutoGifFooter.h>
 
+#import "LTxCoreConfig.h"
+
 #pragma mark - Header
 @interface LTxCoreMJRefreshHeader : MJRefreshGifHeader
 
@@ -20,3 +22,10 @@
 @interface LTxCoreMJRefreshFooter : MJRefreshAutoGifFooter
 
 @end
+
+#pragma mark - LTxCoreMJRefresh
+@interface LTxCoreMJRefresh : NSObject
++(LTxCoreMJRefreshHeader*)headerWithRefreshingBlock:(LTxCallbackBlock)pullDownRefresh;
++(LTxCoreMJRefreshFooter*)footerWithRefreshingBlock:(LTxCallbackBlock)pullUpRefresh;
+@end
+

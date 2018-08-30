@@ -37,6 +37,8 @@
 
 #### 文件预览
 
+![](https://github.com/liangtongdev/LTxCore/blob/master/screenshots/file_preview.png)
+
 ```Objective-C
         LTxCoreFilePreviewViewController* previewVC = [[LTxCoreFilePreviewViewController alloc] init];
         previewVC.fileURL = [NSURL URLWithString:@"https://developer.apple.com/ibeacon/Getting-Started-with-iBeacon.pdf"];

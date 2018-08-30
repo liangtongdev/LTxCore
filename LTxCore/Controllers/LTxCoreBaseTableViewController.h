@@ -7,17 +7,18 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <DZNEmptyDataSet/UIScrollView+EmptyDataSet.h>
+#import <MBProgressHUD/MBProgressHUD.h>
 #import <LTxCategories/LTxCategories.h>
+#import "LTxCoreEmptyDataSetViewModel.h"//空画面
 #import "LTxCoreMJRefresh.h"
 #import "LTxCoreConfig.h"
 @interface LTxCoreBaseTableViewController : UITableViewController
 #pragma mark - 画面提示
-@property(nonatomic,strong) NSString* errorTips;
+@property(nonatomic, strong) NSString* errorTips;
+@property(nonatomic, strong, readonly) LTxCoreEmptyDataSetViewModel* emptyDataSet;
 
 #pragma mark - ActivityView
 -(void)showAnimatingActivityView;
--(void)showAnimatingActivityViewWithStyle:(UIActivityIndicatorViewStyle)style;
 -(void)hideAnimatingActivityView;
 
 #pragma mark - 刷新

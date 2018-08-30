@@ -133,6 +133,7 @@
                     
                     _filePath = [NSURL fileURLWithPath:oldFilePath];
                     [self setupPreviewViewContent];
+                    [self hideAnimatingActivityView];
                     return;
                 }
             }

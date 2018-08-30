@@ -1,0 +1,6 @@
+framework module LTxCore {
+  umbrella header "LTxCore-umbrella.h"
+
+  export *
+  module * { export * }
+}

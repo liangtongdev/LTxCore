@@ -1,0 +1,92 @@
+/* 
+  LTxSippr.strings
+  LTxComponentsForSippr
+
+  Created by liangtong on 2018/3/1.
+  Copyright © 2018年 liangtong. All rights reserved.
+*/
+
+/** 共通 **/
+
+"text_cmn_add"    =   "添加";
+"text_cmn_ok"    =   "确定";
+"text_cmn_save"    =   "保存";
+"text_cmn_save_success"    =   "保存成功，将在程序下次进入非离线模式时自动上传！";
+"text_cmn_continue"    =   "继续";
+"text_cmn_download"    =   "下载";
+"text_cmn_cancel"    =   "取消";
+"text_cmn_exit"    =   "退出";
+"text_cmn_submit"    =   "提交";
+"text_cmn_tip"    =   "提示";
+"text_cmn_leave"    =   "离开";
+"text_cmn_enter"    =   "进入";
+"text_cmn_revoke"    =   "撤销";
+"text_cmn_give_up_upload"    =   "不再上传";
+"text_cmn_detail"    =   "详情";
+"text_cmn_quick_search"    =   "快速搜索";
+"text_cmn_root_document"    =   " 根目录";
+"text_cmn_wainting"    =   "请稍后...";
+"text_cmn_refresh_pull_down_idle"    =   "下拉刷新...";
+"text_cmn_refresh_pull_down_pulling"    =   "松手更新...";
+"text_cmn_refresh_pull_down_refreshing"    =   "更新中...";
+"text_cmn_refresh_pull_up_idle"    =   "";
+"text_cmn_refresh_pull_up_pulling"    =   "松手更新...";
+"text_cmn_refresh_pull_up_refreshing"    =   "更新中...";
+"text_cmn_refresh_pull_up_no_more"    =   "没有更多的了";
+"text_cmn_no_authority"    =   "你没有权限！";
+"text_cmn_get_it"    =   "知道了";
+
+/** 消息 **/
+"text_message_mine"    =   "我的消息";
+"text_message_push_diy"    =   "推送定制";
+"text_message_push_no_item"    =   "尚未配置推送定制项";
+
+/** 设置 **/
+"text_setting"    =   "设置";
+"text_setting_about"    =   "关于";
+"text_setting_about_current_version"    =   "当前版本";
+"text_setting_about_history"    =   "更新历史";
+"text_setting_feed_back"    =   "用户反馈";
+"text_setting_feed_back_success"    =   "反馈成功！";
+"text_setting_feed_back_content_empty"    =   "内容不能为空！";
+"text_setting_qrcode_install"    =   "扫我安装";
+
+/** 相机 **/
+"text_camera_open"    =   "拍摄";
+"text_camera_qrcode_scan"    =   "扫一扫";
+"text_camera_open_flash_light"    =   " 轻点照亮 ";
+"text_camera_close_flash_light"    =   " 轻点关闭 ";
+"text_camera_qrcode_scan_tip"    =   "放入框内，自动扫描";
+"text_camera_authorization_do_deny"    =   "没有授权使用相机,无法进行二维码扫描。";
+"text_camera_authorization_status_deny"    =   "没有使用相机权限，请在设备的'设置-隐私-相机'中允许访问相机。";
+"text_camera_qrcode_scan_failed"    =   "二维码识别失败！";
+"text_camera_album_photo_save_failed"    =   "照片未保存至系统相册！";
+"text_camera_album_video_save_failed"    =   "视频未保存至系统相册！";
+
+/** 相册 **/
+"text_camera_album"    =   "相册";
+"text_album_open"    =   "从相册选择";
+"text_album_authorization_status_deny"    =   "无法访问相册，请在iPhone的\"设置-隐私-相册\"中允许访问相册！";
+
+
+/** 登录 **/
+"text_auth_login"    =   "用户认证";
+"text_auth_login_username_placeholder"    =   "用户名/手机号";
+"text_auth_login_password_placeholder"    =   "密码";
+"text_auth_login_action"    =   "登录";
+"text_auth_login_forget_action"    =   "忘记密码？";
+"text_auth_sms_login_title"    =   "手机验证快捷登录";
+"text_auth_sms_login"    =   "验证并登录";
+"text_auth_sms_forget_password_title"    =   "忘记密码";
+"text_auth_sms_forget_password"    =   "提交验证";
+"text_auth_sms_validate_title"    =   "手机验证";
+"text_auth_sms_validate"    =   "手机验证";
+"text_auth_sms_phone_placeholder"    =   "手机";
+"text_auth_sms_code_placeholder"    =   "验证码";
+"text_auth_set_new_password"    =   "设置新密码";
+"text_auth_set_new_password_placeholder_1"    =   "新密码";
+"text_auth_set_new_password_placeholder_2"    =   "再次输入新密码";
+"text_auth_set_new_password_action"    =   "提交新密码";
+"text_auth_logout_confirm"    =   "是否注销当前用户？";
+
+

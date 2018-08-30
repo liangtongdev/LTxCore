@@ -65,3 +65,44 @@
 }
 
 @end
+
+#pragma mark - LTxCoreMJRefresh
+@implementation LTxCoreMJRefresh 
++(LTxCoreMJRefreshHeader*)headerWithRefreshingBlock:(LTxCallbackBlock)pullDownRefresh{
+    LTxCoreMJRefreshHeader *header = [LTxCoreMJRefreshHeader headerWithRefreshingBlock:^{
+        if(pullDownRefresh){//加载数据
+            pullDownRefresh();
+            //            pullDownRefresh(^{
+            //                dispatch_async(dispatch_get_main_queue(), ^{
+            //                    [self.tableView reloadData];
+            //                    [self.tableView.mj_header endRefreshing];
+            //                });
+            //            });
+        }
+    }];
+    // 设置自动切换透明度(在导航栏下面自动隐藏)
+    header.automaticallyChangeAlpha = YES;
+    header.lastUpdatedTimeLabel.hidden = YES;
+    header.stateLabel.textColor = [UIColor lightGrayColor];
+    // 设置文字
+    [header setTitle:LTxLocalizedString(@"text_cmn_refresh_pull_down_idle") forState:MJRefreshStateIdle];
+    [header setTitle:LTxLocalizedString(@"text_cmn_refresh_pull_down_pulling") forState:MJRefreshStatePulling];
+    [header setTitle:LTxLocalizedString(@"text_cmn_refresh_pull_down_refreshing") forState:MJRefreshStateRefreshing];
+    return header;
+}
++(LTxCoreMJRefreshFooter*)footerWithRefreshingBlock:(LTxCallbackBlock)pullUpRefresh{
+    LTxCoreMJRefreshFooter *footer = [LTxCoreMJRefreshFooter footerWithRefreshingBlock:^{
+        if(pullUpRefresh){//加载数据
+            pullUpRefresh();
+        }
+    }];
+    // 设置自动切换透明度(在导航栏下面自动隐藏)
+    footer.automaticallyChangeAlpha = YES;
+    footer.stateLabel.textColor = [UIColor lightGrayColor];
+    // 设置文字
+    [footer setTitle:LTxLocalizedString(@"text_cmn_refresh_pull_up_idle") forState:MJRefreshStateIdle];
+    [footer setTitle:LTxLocalizedString(@"text_cmn_refresh_pull_up_pulling") forState:MJRefreshStatePulling];
+    [footer setTitle:LTxLocalizedString(@"text_cmn_refresh_pull_up_refreshing") forState:MJRefreshStateRefreshing];
+    return footer;
+}
+@end
