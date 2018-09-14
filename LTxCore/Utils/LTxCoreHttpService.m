@@ -183,7 +183,7 @@ static LTxSipprHTTPSessionManager *_sharedManager;
     
     return [manager POST:url parameters:param constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
         for (NSURL* filePath in filePathArray) {
-            NSString* fileName = filePath.path.lastPathComponent;
+            NSString* fileName = [filePath.path.lastPathComponent stringByDeletingPathExtension];
             [formData appendPartWithFileURL:filePath
                                        name:fileName
                                       error:nil];
