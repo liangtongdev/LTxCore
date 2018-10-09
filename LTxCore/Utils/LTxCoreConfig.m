@@ -75,10 +75,6 @@ static LTxCoreConfig *_instance;
         _host = [typeDic objectForKey:@"host"];
         
         //缓存中读取 - 防止由于host获取失败导致无法继续更新的问题
-        _messageHost = [NSUserDefaults lt_objectForKey:USERDEFAULT_APP_MSG_HOST];
-        _eepmHost = [NSUserDefaults lt_objectForKey:USERDEFAULT_APP_UPDATE_HOST];
-        _serviceHost = [NSUserDefaults lt_objectForKey:USERDEFAULT_APP_SERVICE_HOST];
-        _serviceHost = [NSUserDefaults lt_objectForKey:USERDEFAULT_APP_SHARE_HOST];
     }else{//默认配置
         /*HOST*/
         _messageHost = @"http://125.46.29.147:8852/eepj_push";

@@ -9,9 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <FMDB/FMDB.h>
 
-@interface FMDatabase (Helper)
 
-@end
 
 /**
  * 本地数据库

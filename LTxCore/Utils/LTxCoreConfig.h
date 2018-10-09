@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 #import "LTxCoreMacroDef.h"
-#import "NSUserDefaults+LTxCore.h"
+#import <LTxCategories/LTxCategories.h>
 /**
  * 配置文件
  * 默认从工程Bundle中读取LTxCoreConfig.plist文件

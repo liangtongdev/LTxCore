@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "LTxCore"
-  s.version      = "0.5.4"
+  s.version      = "0.5.5"
   s.summary      = "组件化管理核心模块. "
   s.license      = "MIT"
   s.author             = { "liangtong" => "liangtongdev@163.com" }
@@ -14,9 +14,11 @@ Pod::Spec.new do |s|
   s.dependency 'MJRefresh', '~> 3.1.15.3'
   s.dependency 'DZNEmptyDataSet', '~> 1.8.1'
   s.dependency 'AFNetworking', '~> 3.2.1'
-  s.dependency 'LTxCategories'
-  s.dependency 'FMDB', '~> 2.7.2'
   s.dependency 'SSZipArchive', '~> 2.1.3'
+  
+  s.dependency 'LTxCategories'
+  s.dependency 'FMDBExtension'
+  
   s.frameworks = "Foundation", "UIKit"
 
   #  s.default_subspecs = 'Controllers'

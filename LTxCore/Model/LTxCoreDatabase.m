@@ -7,46 +7,7 @@
 //
 
 #import "LTxCoreDatabase.h"
-
-@implementation FMDatabase (Helper)
-//数据查询
--(NSMutableArray*)queryWithSQL:(NSString*)sql{
-    NSMutableArray* retArray = [[NSMutableArray alloc] init];
-    if([self open]){
-        [self closeOpenResultSets];
-        FMResultSet *rs = [self executeQuery:sql];
-        NSDictionary* columnDic = [rs columnNameToIndexMap];
-        while ([rs next]) {
-            NSMutableDictionary* temp = [[NSMutableDictionary alloc] init];
-            for (NSString*key in [columnDic allKeys]) {
-                NSString* value = [rs stringForColumn:key];
-                if (!value) {
-                    value = @"";
-                }
-                [temp setObject:value forKey:key];
-            }
-            [retArray addObject:temp];
-        }
-        [rs close];
-    }
-    [self close];
-    return retArray;
-}
-//数量查询
--(NSInteger)countWithSQL:(NSString*)sql{
-    NSInteger ret = -1;
-    if([self open]){
-        [self closeOpenResultSets];
-        FMResultSet *rs = [self executeQuery:sql];
-        while ([rs next]) {
-            ret = [rs longForColumnIndex:0];
-        }
-        [rs close];
-    }
-    [self close];
-    return ret;
-}
-@end
+#import <FMDBExtension/FMDatabase+Extension.h>
 
 @interface LTxCoreDatabase()
 @property (strong, nonatomic) NSString* dbPath;

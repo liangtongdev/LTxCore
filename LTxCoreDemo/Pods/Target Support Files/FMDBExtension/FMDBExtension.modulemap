@@ -1,0 +1,6 @@
+framework module FMDBExtension {
+  umbrella header "FMDBExtension-umbrella.h"
+
+  export *
+  module * { export * }
+}
