@@ -65,6 +65,7 @@ static LTxCoreConfig *_instance;
         _pageSize = [[configDic objectForKey:@"pageSize"] integerValue];
         _instalTip = [configDic objectForKey:@"instalTip"];
         _aboutTip = [configDic objectForKey:@"aboutTip"];
+        _loginTip = [configDic objectForKey:@"loginTip"];
         _cameraAlbumCustom = [[configDic objectForKey:@"cameraAlbumCustom"] boolValue];
         
         _maxDownloadingCount = [[configDic objectForKey:@"maxDownloadingCount"] integerValue];
