@@ -37,7 +37,7 @@
     if (_errorTips == nil) {
         return [UIImage imageNamed:@"ic_no_data"];//初始画面
     }else{
-        return [UIImage imageNamed:@"app_view_error_code"];//发生错误了
+        return [UIImage imageNamed:@"ic_error"];//发生错误了
     }
 }
 

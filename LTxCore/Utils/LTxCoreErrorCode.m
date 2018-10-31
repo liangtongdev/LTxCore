@@ -47,7 +47,7 @@
             }else if (httpStatusCode < 600){
                 retString = [NSString stringWithFormat:@"服务异常(%td)！",httpStatusCode];
             }else{// statusCode >= 600,hook
-                retString = [NSString stringWithFormat:@"访问好像不太正常(%td)，我也不知道为什么会出现这个状态码😄！",httpStatusCode];
+                retString = [NSString stringWithFormat:@"访问好像不太正常(%td)，我也不知道为什么会出现这个状态码�！",httpStatusCode];
             }
         }else{
             retString = @"数据访问出了点儿问题！";
@@ -96,6 +96,8 @@
             retString = @"云平台短信服务业务限流！";
         }else if (code == 20209){
             retString = @"云平台短信服务调用异常！";
+        }else if (code == 20210){
+            retString = @"短信暂未开通/暂停服务！";
         }else{
             retString = @"服务异常，请稍后再试！";
         }
