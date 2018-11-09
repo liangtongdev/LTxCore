@@ -42,9 +42,10 @@
     [self ltx_setupLeftBackButton];
     self.view.backgroundColor = [LTxCoreConfig sharedInstance].viewBackgroundColor;
     _emptyDataSet = [[LTxCoreEmptyDataSetViewModel alloc] init];
+    __weak __typeof(self) weakSelf = self;
     _emptyDataSet.emptyDataSetChangeCallback = ^{
         dispatch_async(dispatch_get_main_queue(), ^{
-            [self.tableView reloadEmptyDataSet];
+            [weakSelf.tableView reloadEmptyDataSet];
         });
     };
     self.tableView.emptyDataSetSource = _emptyDataSet;

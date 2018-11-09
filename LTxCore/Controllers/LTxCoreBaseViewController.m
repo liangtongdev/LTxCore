@@ -112,9 +112,10 @@
 -(LTxCoreEmptyDataSetViewModel*)emptyDataSet{
     if(!_emptyDataSet){
          _emptyDataSet = [[LTxCoreEmptyDataSetViewModel alloc] init];
+        __weak __typeof(self) weakSelf = self;
         _emptyDataSet.emptyDataSetChangeCallback = ^{
             dispatch_async(dispatch_get_main_queue(), ^{
-                [self.emptyScrollView reloadEmptyDataSet];
+                [weakSelf.emptyScrollView reloadEmptyDataSet];
             });
         };
     }

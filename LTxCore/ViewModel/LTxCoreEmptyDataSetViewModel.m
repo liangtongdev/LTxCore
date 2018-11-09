@@ -15,9 +15,9 @@
 }
 
 - (NSAttributedString *)descriptionForEmptyDataSet:(UIScrollView *)scrollView{
-    if (!_attributedEmptyDescription) {
+    if (_attributedEmptyDescription) {
         return _attributedEmptyDescription;
-    }else if (!_emptyDescription ) {
+    }else if (_emptyDescription ) {
         NSMutableDictionary *attributes = [NSMutableDictionary new];
         NSMutableParagraphStyle *paragraph = [NSMutableParagraphStyle new];
         paragraph.lineBreakMode = NSLineBreakByWordWrapping;
