@@ -42,6 +42,11 @@
     [self ltx_setupLeftBackButton];
     self.view.backgroundColor = [LTxCoreConfig sharedInstance].viewBackgroundColor;
     _emptyDataSet = [[LTxCoreEmptyDataSetViewModel alloc] init];
+    _emptyDataSet.emptyDataSetChangeCallback = ^{
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.tableView reloadEmptyDataSet];
+        });
+    };
     self.tableView.emptyDataSetSource = _emptyDataSet;
     self.tableView.emptyDataSetDelegate = _emptyDataSet;
     [self.tableView reloadEmptyDataSet];
@@ -138,5 +143,20 @@
     _emptyDataSet.refreshAction = refreshAction;
 }
 
+
+#pragma mark - KVO
+-(void)addEmptyDataSetKVO{
+    [self.emptyDataSet addObserver:self forKeyPath:@"emptyImage" options:NSKeyValueObservingOptionNew context:nil];
+}
+-(void)removeEmptyDataSetKVO{
+    [self.emptyDataSet removeObserver:self forKeyPath:@"emptyImage" context:nil];
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath
+                      ofObject:(id)object
+                        change:(NSDictionary<NSKeyValueChangeKey,id> *)change
+                       context:(void *)contex{
+
+}
 
 @end

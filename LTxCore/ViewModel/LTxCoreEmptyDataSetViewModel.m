@@ -91,4 +91,30 @@
 }
 
 
+#pragma mark - Setter
+-(void)setEmptyImage:(UIImage *)emptyImage{
+    _emptyImage = emptyImage;
+    if (_emptyDataSetChangeCallback) {
+        _emptyDataSetChangeCallback();
+    }
+}
+-(void)setAttributedTitle:(NSAttributedString *)attributedTitle{
+    _attributedTitle = attributedTitle;
+    if (_emptyDataSetChangeCallback) {
+        _emptyDataSetChangeCallback();
+    }
+}
+-(void)setEmptyDescription:(NSString *)emptyDescription{
+    _emptyDescription = emptyDescription;
+    if (_emptyDataSetChangeCallback) {
+        _emptyDataSetChangeCallback();
+    }
+}
+-(void)setAttributedEmptyDescription:(NSAttributedString *)attributedEmptyDescription{
+    _attributedEmptyDescription = attributedEmptyDescription;
+    if (_emptyDataSetChangeCallback) {
+        _emptyDataSetChangeCallback();
+    }
+}
+
 @end
