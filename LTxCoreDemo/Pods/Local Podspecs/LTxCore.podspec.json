@@ -1,6 +1,6 @@
 {
   "name": "LTxCore",
-  "version": "0.5.4",
+  "version": "0.5.6",
   "summary": "组件化管理核心模块.",
   "license": "MIT",
   "authors": {
@@ -12,7 +12,7 @@
   },
   "source": {
     "git": "https://github.com/liangtongdev/LTxCore.git",
-    "tag": "0.5.4",
+    "tag": "0.5.6",
     "submodules": true
   },
   "dependencies": {

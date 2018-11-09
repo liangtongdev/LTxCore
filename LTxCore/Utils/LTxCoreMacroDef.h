@@ -48,6 +48,6 @@ typedef void (^LTxImageURLAndPHAssetCallbackBlock)(UIImage*, NSURL*, PHAsset *);
 #define LTxImageWithName(imageName)  [UIImage imageWithContentsOfFile: [[NSBundle mainBundle] pathForResource:[NSString stringWithFormat:@"LT.bundle/Images/%@",imageName] ofType:@"png"]]
 
 //导航栏图标大小
-#define LTxNavigationBarItemSize 24
+#define LTxNavigationBarItemSize 32
 
 #endif /* LTxCoreMacroDef_h */

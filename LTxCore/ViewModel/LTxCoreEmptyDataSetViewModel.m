@@ -11,14 +11,13 @@
 
 #pragma mark - 空画面及错误提示
 - (NSAttributedString *)titleForEmptyDataSet:(UIScrollView *)scrollView{
-    return nil;
+    return _attributedTitle;
 }
 
 - (NSAttributedString *)descriptionForEmptyDataSet:(UIScrollView *)scrollView{
-    if (_errorTips == nil) {
-        return nil;
-    }else{
-        NSString *text = _errorTips;
+    if (!_attributedEmptyDescription) {
+        return _attributedEmptyDescription;
+    }else if (!_emptyDescription ) {
         NSMutableDictionary *attributes = [NSMutableDictionary new];
         NSMutableParagraphStyle *paragraph = [NSMutableParagraphStyle new];
         paragraph.lineBreakMode = NSLineBreakByWordWrapping;
@@ -27,17 +26,22 @@
         [attributes setObject:[UIColor lightGrayColor] forKey:NSForegroundColorAttributeName];
         [attributes setObject:paragraph forKey:NSParagraphStyleAttributeName];
         
-        NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:text attributes:attributes];
+        NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:_emptyDescription attributes:attributes];
         
         return attributedString;
+    }else{
+        return nil;
     }
+
 }
 
 - (UIImage *)imageForEmptyDataSet:(UIScrollView *)scrollView{
-    if (_errorTips == nil) {
-        return [UIImage imageNamed:@"ic_no_data"];//初始画面
-    }else{
+    if (_emptyImage) {
+        return _emptyImage;
+    }else if (_emptyDescription || _attributedEmptyDescription) {
         return [UIImage imageNamed:@"ic_error"];//发生错误了
+    }else{
+        return [UIImage imageNamed:@"ic_no_data"];//初始画面
     }
 }
 

@@ -14,7 +14,16 @@
  **/
 @interface LTxCoreEmptyDataSetViewModel : NSObject<DZNEmptyDataSetSource, DZNEmptyDataSetDelegate>
 
-@property (nonatomic, copy) NSString* errorTips;
+//图片
+@property (nonatomic, strong) UIImage* emptyImage;
+//标题
+@property (nonatomic, copy) NSAttributedString* attributedTitle;
+
+//描述
+@property (nonatomic, copy) NSString* emptyDescription;
+@property (nonatomic, copy) NSAttributedString* attributedEmptyDescription;
+
+//点击空画面的回调
 @property (nonatomic, copy) LTxCallbackBlock refreshAction;
 
 @end

@@ -137,9 +137,6 @@
     _refreshAction = refreshAction;
     _emptyDataSet.refreshAction = refreshAction;
 }
--(void)setErrorTips:(NSString *)errorTips{
-    _errorTips = errorTips;
-    _emptyDataSet.errorTips = errorTips;
-}
+
 
 @end

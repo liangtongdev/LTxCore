@@ -15,7 +15,6 @@
 
 @interface LTxCoreBaseViewController : UIViewController
 #pragma mark - 画面提示
-@property (nonatomic, strong) NSString* errorTips;
 @property (nonatomic, strong) UIScrollView* emptyScrollView;
 @property(nonatomic, strong, readonly) LTxCoreEmptyDataSetViewModel* emptyDataSet;
 

@@ -14,7 +14,6 @@
 #import "LTxCoreConfig.h"
 @interface LTxCoreBaseTableViewController : UITableViewController
 #pragma mark - 画面提示
-@property(nonatomic, strong) NSString* errorTips;
 @property(nonatomic, strong, readonly) LTxCoreEmptyDataSetViewModel* emptyDataSet;
 
 #pragma mark - ActivityView
