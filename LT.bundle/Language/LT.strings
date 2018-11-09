@@ -11,6 +11,7 @@
 "text_cmn_add"    =   "添加";
 "text_cmn_ok"    =   "确定";
 "text_cmn_save"    =   "保存";
+"text_cmn_finish"    =   "完成";
 "text_cmn_save_success"    =   "保存成功，将在程序下次进入非离线模式时自动上传！";
 "text_cmn_continue"    =   "继续";
 "text_cmn_download"    =   "下载";
@@ -38,6 +39,7 @@
 
 /** 消息 **/
 "text_message_mine"    =   "我的消息";
+"text_message_mine_empty"    =   "当前没有消息";
 "text_message_push_diy"    =   "推送定制";
 "text_message_push_no_item"    =   "尚未配置推送定制项";
 
