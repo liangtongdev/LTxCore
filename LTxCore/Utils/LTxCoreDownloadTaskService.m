@@ -41,12 +41,19 @@ static LTxCoreDownloadTaskService *_instance;
  **/
 -(void)setupDownloadTaskService{
     _taskArray = [[NSMutableArray alloc] init];
-    NSInteger maxCount = [LTxCoreConfig sharedInstance].maxDownloadingCount;
+    NSInteger maxCount = [LTxCoreConfig sharedInstance].maxDownloadingCount < 1;
+    if (maxCount < 1) {
+        maxCount = 1;
+    }
     _semaphore = dispatch_semaphore_create(maxCount);
     _queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
     
-    
-    NSURLSessionConfiguration* configuration = [NSURLSessionConfiguration backgroundSessionConfigurationWithIdentifier:@"ltx_core_download_task_service_identifier"];
+    NSURLSessionConfiguration* configuration;
+    if ([LTxCoreConfig sharedInstance].enableBackgroundDownload) {
+        configuration = [NSURLSessionConfiguration backgroundSessionConfigurationWithIdentifier:@"ltx_core_download_task_service_identifier"];
+    }else{
+        configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
+    }
     _operationQueue = [[NSOperationQueue alloc] init];
     _session = [NSURLSession sessionWithConfiguration:configuration delegate:self delegateQueue:_operationQueue];
     

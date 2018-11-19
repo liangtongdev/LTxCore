@@ -21,7 +21,14 @@
 	<key>cameraAlbumCustom</key>
 	<true/>
 	<key>signature</key>
-	<string>7ed7d1642b3b2557194f3898bfdfc4b6f7f7605fa2f81c3357d747775c7b8646</string>
+	<string>隐私项</string>
+	<key>download</key>
+	<dict>
+		<key>maxDownloadingCount</key>
+		<integer>1</integer>
+		<key>backgroundDownload</key>
+		<false/>
+	</dict>
 	<key>debug</key>
 	<dict>
 		<key>host</key>

@@ -12,6 +12,9 @@
 @property (nonatomic, readwrite) BOOL isDebug;
 @property (nonatomic, readwrite) BOOL signature;//是否开启签名验证
 @property (nonatomic, strong, readwrite) NSString* signatureToken;//签名验证时的Token
+
+@property (nonatomic, assign, readwrite) BOOL enableBackgroundDownload;//后台下载
+@property (nonatomic, assign, readwrite) NSInteger maxDownloadingCount;//最大下载数量
 @end
 @implementation LTxCoreConfig
 /**
@@ -69,7 +72,9 @@ static LTxCoreConfig *_instance;
         _loginTip = [configDic objectForKey:@"loginTip"];
         _cameraAlbumCustom = [[configDic objectForKey:@"cameraAlbumCustom"] boolValue];
         
-        _maxDownloadingCount = [[configDic objectForKey:@"maxDownloadingCount"] integerValue];
+        NSDictionary* downloadConfig = [configDic objectForKey:@"download"];
+        _enableBackgroundDownload = [[downloadConfig objectForKey:@"backgroundDownload"] boolValue];
+        _maxDownloadingCount = [[downloadConfig objectForKey:@"maxDownloadingCount"] integerValue];
         
         //HOST
         NSDictionary* typeDic = [configDic objectForKey:type];
@@ -94,6 +99,7 @@ static LTxCoreConfig *_instance;
         _aboutTip = @"本应用包含极光推送，版权所有(c) 2012, 深圳市和讯华谷信息技术有限公司。";
         _cameraAlbumCustom = YES;
         
+        _enableBackgroundDownload = NO;
         _maxDownloadingCount = 1;
     }
     
