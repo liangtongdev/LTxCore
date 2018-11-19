@@ -63,6 +63,7 @@ static LTxCoreConfig *_instance;
         _appId = [configDic objectForKey:@"appId"];
         _pushId = [configDic objectForKey:@"pushId"];
         _pageSize = [[configDic objectForKey:@"pageSize"] integerValue];
+        
         _instalTip = [configDic objectForKey:@"instalTip"];
         _aboutTip = [configDic objectForKey:@"aboutTip"];
         _loginTip = [configDic objectForKey:@"loginTip"];

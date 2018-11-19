@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>type</key>
+	<string>debug</string>
+	<key>appId</key>
+	<string>8c41f00f-8870-469d-8180-5d9e556f0170</string>
+	<key>pushId</key>
+	<string>bbf7798b7b00145b09d10b89</string>
+	<key>pageSize</key>
+	<integer>20</integer>
+	<key>instalTip</key>
+	<string>在苹果设备上安装的重要提示： 
+1.扫码后,确保“切换到苹果自带的Safari浏览器打开网页”，方能成功安装！
+2.针对iOS9及以上版本的用户，打开本应用时您可能会收到“未受信任的企业级开发者”的提示。此时，您需按照以下步骤手工完成设置（苹果官方最新安全要求）：进入[设置]&gt;[通用]&gt;[描述文件]&gt;[企业级应用]&gt;[Sippr Enginnering Group Co., LTD.]，点击“信任...”或进入[设置]&gt;[通用]&gt;[设备管理]&gt;[Sippr Enginnering Group Co., LTD.]，点击“信任...”。</string>
+	<key>aboutTip</key>
+	<string>本应用包含极光推送，版权所有(c) 2012, 深圳市和讯华谷信息技术有限公司。</string>
+	<key>loginTip</key>
+	<string></string>
+	<key>cameraAlbumCustom</key>
+	<true/>
+	<key>signature</key>
+	<string>7ed7d1642b3b2557194f3898bfdfc4b6f7f7605fa2f81c3357d747775c7b8646</string>
+	<key>debug</key>
+	<dict>
+		<key>host</key>
+		<string>http://192.168.1.75:8802/eepj-base-login</string>
+		<key>instalUrl</key>
+		<string>http://125.46.29.147:8801/eepm/</string>
+	</dict>
+	<key>release</key>
+	<dict>
+		<key>instalUrl</key>
+		<string>-</string>
+		<key>host</key>
+		<string>-</string>
+	</dict>
+</dict>
+</plist>

@@ -18,6 +18,8 @@
 		2731BD042137C4BF00C16BC8 /* filePreview_local.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 2731BCFE2137C4BF00C16BC8 /* filePreview_local.pdf */; };
 		2731BD052137C4BF00C16BC8 /* LT.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2731BCFF2137C4BF00C16BC8 /* LT.bundle */; };
 		2731BD0D2137D83B00C16BC8 /* TestTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2731BD0C2137D83B00C16BC8 /* TestTableViewController.m */; };
+		273D60D8219EC90F00AFF252 /* LTxCoreConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = 273D60D7219EC90F00AFF252 /* LTxCoreConfig.plist */; };
+		273D60DA219ECCDE00AFF252 /* LTxCoreError.plist in Resources */ = {isa = PBXBuildFile; fileRef = 273D60D9219ECCDE00AFF252 /* LTxCoreError.plist */; };
 		C984C237F89AC21C8D498040 /* Pods_LTxCoreDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED68222F1B2E38E5A45E93C2 /* Pods_LTxCoreDemo.framework */; };
 /* End PBXBuildFile section */
 
@@ -38,6 +40,8 @@
 		2731BD002137C4BF00C16BC8 /* TestFilePreviewTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFilePreviewTableViewController.h; sourceTree = "<group>"; };
 		2731BD0B2137D83B00C16BC8 /* TestTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestTableViewController.h; sourceTree = "<group>"; };
 		2731BD0C2137D83B00C16BC8 /* TestTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestTableViewController.m; sourceTree = "<group>"; };
+		273D60D7219EC90F00AFF252 /* LTxCoreConfig.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = LTxCoreConfig.plist; sourceTree = "<group>"; };
+		273D60D9219ECCDE00AFF252 /* LTxCoreError.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = LTxCoreError.plist; sourceTree = "<group>"; };
 		2B37B101F6F3E2BCF6B7105E /* Pods-LTxCoreDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LTxCoreDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-LTxCoreDemo/Pods-LTxCoreDemo.release.xcconfig"; sourceTree = "<group>"; };
 		9361CE9A9B3E8A4909D47091 /* Pods-LTxCoreDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LTxCoreDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LTxCoreDemo/Pods-LTxCoreDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		ED68222F1B2E38E5A45E93C2 /* Pods_LTxCoreDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LTxCoreDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -103,6 +107,8 @@
 		2731BCFB2137C4BF00C16BC8 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				273D60D7219EC90F00AFF252 /* LTxCoreConfig.plist */,
+				273D60D9219ECCDE00AFF252 /* LTxCoreError.plist */,
 				2731BCFC2137C4BF00C16BC8 /* filePreview_local.jpg */,
 				2731BCFD2137C4BF00C16BC8 /* filePreview_local.MOV */,
 				2731BCFE2137C4BF00C16BC8 /* filePreview_local.pdf */,
@@ -153,6 +159,11 @@
 				TargetAttributes = {
 					2731BCE02137C3C100C16BC8 = {
 						CreatedOnToolsVersion = 9.4.1;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 0;
+							};
+						};
 					};
 				};
 			};
@@ -180,9 +191,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				2731BD052137C4BF00C16BC8 /* LT.bundle in Resources */,
+				273D60DA219ECCDE00AFF252 /* LTxCoreError.plist in Resources */,
 				2731BD022137C4BF00C16BC8 /* filePreview_local.jpg in Resources */,
 				2731BD042137C4BF00C16BC8 /* filePreview_local.pdf in Resources */,
 				2731BCF12137C3C300C16BC8 /* LaunchScreen.storyboard in Resources */,
+				273D60D8219EC90F00AFF252 /* LTxCoreConfig.plist in Resources */,
 				2731BCEE2137C3C300C16BC8 /* Assets.xcassets in Resources */,
 				2731BD032137C4BF00C16BC8 /* filePreview_local.MOV in Resources */,
 				2731BCEC2137C3C100C16BC8 /* Main.storyboard in Resources */,
@@ -396,6 +409,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = LTxCoreDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -413,6 +427,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = LTxCoreDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

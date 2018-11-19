@@ -29,6 +29,8 @@
     
 //    [LTxCoreDownloadTaskService sharedInstance];
     
+//    [self testErrorCode];
+    
     return YES;
 }
 
@@ -37,7 +39,17 @@
     for (NSInteger i = 1; i < 20; ++i) {
         [[LTxCoreDownloadTaskService sharedInstance] addDownloadTaskWithURL:@"https://developer.apple.com/ibeacon/Getting-Started-with-iBeacon.pdf" pathInSandbox:LTX_CORE_FILE_PREVIEW_CACHE_RELATIVE_PATH saveName:[NSString stringWithFormat:@"test_download_%td",i] unzip:@0];
     }
-    
+}
+
+-(void)testErrorCode{
+    NSDictionary* params = @{
+                             @"username":@"liangtong",
+                             @"password":@"111112",
+                             @"appId":@"8c41f00f-8870-469d-8180-5d9e556f0170",
+                             };
+    [LTxCoreHttpService doPostWithURL:@"http://192.168.1.75:8802/eepj-base-login/v1/api/mobile/user/authentication" param:params complete:^(NSString *error, id code) {
+        
+    }];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
