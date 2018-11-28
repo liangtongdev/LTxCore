@@ -50,6 +50,10 @@
 "text_setting_feed_back_success"    =   "反馈成功！";
 "text_setting_feed_back_content_empty"    =   "内容不能为空！";
 "text_setting_qrcode_install"    =   "扫我安装";
+"text_setting_clear_cache_query"    =   "确定要清理掉缓存数据吗？";
+"text_setting_clear_success"    =   "缓存清理成功！";
+"text_setting_update_latest"    =   "已经是最新版本!";
+"text_setting_safety"    =   "账户安全";
 
 /** 相机 **/
 "text_camera_open"    =   "拍摄";
@@ -76,6 +80,7 @@
 "text_auth_login_action"    =   "登录";
 "text_auth_login_forget_action"    =   "忘记密码？";
 "text_auth_sms_login_title"    =   "手机验证快捷登录";
+"text_auth_sms_login_register"    =   "新访客注册";
 "text_auth_sms_login"    =   "验证并登录";
 "text_auth_sms_forget_password_title"    =   "忘记密码";
 "text_auth_sms_forget_password"    =   "提交验证";
