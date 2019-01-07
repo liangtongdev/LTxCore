@@ -250,7 +250,16 @@ static LTxCoreDownloadTaskService *_instance;
     NSFileManager *fileManager = [NSFileManager defaultManager];
     NSError* error;
     
-    NSString* cacheFilePath = [LTxCoreFileManager cacheFilePathWithName:location.path.lastPathComponent];
+    NSString* lastPathComponent;
+    NSString* url = downloadTask.taskDescription;
+    if(url){
+        lastPathComponent = url.lastPathComponent;
+    }
+    if (lastPathComponent == nil || [lastPathComponent isEqualToString:@""]) {
+        lastPathComponent = location.path.lastPathComponent;
+    }
+    
+    NSString* cacheFilePath = [LTxCoreFileManager cacheFilePathWithName:lastPathComponent];
     
     [fileManager moveItemAtPath:location.path toPath:cacheFilePath error:&error];
     if (!error) {
