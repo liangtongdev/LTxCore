@@ -36,7 +36,7 @@ static LTxCoreDatabase *_instance;
     static dispatch_once_t onceTokenBIMDatabase;
     dispatch_once(&onceTokenBIMDatabase, ^{
         _instance = [[LTxCoreDatabase alloc] init];
-        _instance.dbPath = [[NSHomeDirectory() stringByAppendingPathComponent:@"Documents"] stringByAppendingPathComponent:@"bim.db"];
+        _instance.dbPath = [[NSHomeDirectory() stringByAppendingPathComponent:@"Documents"] stringByAppendingPathComponent:@"ltxcore.db"];
     });
     
     return _instance;
