@@ -60,6 +60,8 @@ static LTxCoreDatabase *_instance;
         }else{
             NSLog(@"断点下载表初始化失败！");
         }
+        //清除无效记录
+        [_dbms executeUpdate:@"delete from download_cache_v1 where finish = 1 "];
     }
     [_dbms close];
     
@@ -98,6 +100,7 @@ static LTxCoreDatabase *_instance;
 +(void)addDownloadTaskWithURL:(NSString*)url pathInSandbox:(NSString*)path name:(NSString*)name unzip:(NSNumber*)unZip{
     FMDatabase* dbConnection = [LTxCoreDatabase dbmsConnection];
     if([dbConnection open]){
+        [dbConnection executeUpdate:@"delete from download_cache_v1 where url = ? ",url];
         [dbConnection executeUpdate:@"insert into download_cache_v1 (url, path, name, unzip) values (?, ?, ?, ?)",url, path, name, unZip];
         [dbConnection close];
     }
