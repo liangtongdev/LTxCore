@@ -68,7 +68,8 @@ static LTxCoreConfig *_instance;
         _pageSize = [[configDic objectForKey:@"pageSize"] integerValue];
         
         _instalTip = [configDic objectForKey:@"instalTip"];
-        _aboutTip = [configDic objectForKey:@"aboutTip"];
+        _aboutTip1 = [configDic objectForKey:@"aboutTip1"];
+        _aboutTip2 = [configDic objectForKey:@"aboutTip2"];
         _loginTip = [configDic objectForKey:@"loginTip"];
         _cameraAlbumCustom = [[configDic objectForKey:@"cameraAlbumCustom"] boolValue];
         
@@ -96,7 +97,8 @@ static LTxCoreConfig *_instance;
         _instalTip = @"在苹果设备上安装的重要提示：\
         \n1.扫码后,确保“切换到苹果自带的Safari浏览器打开网页”，方能成功安装！\
         \n2.针对iOS9及以上版本的用户，打开本应用时你可能会收到“未受信任的企业级开发者”的提示。此时，你需按照以下步骤手工完成设置（苹果官方最新安全要求）：进入[设置]>[通用]>[描述文件]>[企业级应用]>[Sippr Enginnering Group Co., LTD.]，点击“信任...”或进入[设置]>[通用]>[设备管理]>[Sippr Enginnering Group Co., LTD.]，点击“信任...”。";
-        _aboutTip = @"本应用包含极光推送，版权所有(c) 2012, 深圳市和讯华谷信息技术有限公司。";
+        _aboutTip1 = @"Copyright 2019-国基工业互联网研究院(河南)有限公司";
+        _aboutTip2 = @"本应用包含极光推送，版权所有(c) 2012, 深圳市和讯华谷信息技术有限公司。";
         _cameraAlbumCustom = YES;
         
         _enableBackgroundDownload = NO;

@@ -59,7 +59,8 @@
 #pragma mark - 其他
 @property (nonatomic, strong) NSString* instalUrl;
 @property (nonatomic, strong) NSString* instalTip;
-@property (nonatomic, strong) NSString* aboutTip;
+@property (nonatomic, strong) NSString* aboutTip1;//关于提示1
+@property (nonatomic, strong) NSString* aboutTip2;//关于提示2
 @property (nonatomic, strong) NSString* loginTip;
 @property (nonatomic, assign) BOOL cameraAlbumCustom;// 保存相片/视频时，是否使用自定义相册
 

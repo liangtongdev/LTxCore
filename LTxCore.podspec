@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "LTxCore"
-  s.version      = "0.5.7"
+  s.version      = "0.5.8"
   s.summary      = "组件化管理核心模块. "
   s.license      = "MIT"
   s.author             = { "liangtong" => "liangtongdev@163.com" }
