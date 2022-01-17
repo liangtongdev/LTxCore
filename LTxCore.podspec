@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "LTxCore"
-  s.version      = "0.5.8"
+  s.version      = "0.5.9"
   s.summary      = "组件化管理核心模块. "
   s.license      = "MIT"
   s.author             = { "liangtong" => "liangtongdev@163.com" }
@@ -9,6 +9,8 @@ Pod::Spec.new do |s|
   s.platform     = :ios, "9.0"
   s.ios.deployment_target = "9.0"
   s.source       = { :git => "https://github.com/liangtongdev/LTxCore.git", :tag => "#{s.version}", :submodules => true }
+  
+  s.pod_target_xcconfig = { 'VALID_ARCHS' => 'x86_64 armv7 arm64' }
   
   s.dependency 'MBProgressHUD'
   s.dependency 'MJRefresh', '~> 3.1.15.3'

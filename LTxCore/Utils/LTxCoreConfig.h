@@ -44,6 +44,7 @@
 
 #pragma mark - host
 @property (nonatomic, strong) NSString* host;
+@property (nonatomic, strong) NSString* appLoginHost;
 @property (nonatomic, strong) NSString* messageHost;
 @property (nonatomic, strong) NSString* eepmHost;
 @property (nonatomic, strong) NSString* serviceHost;
